@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indeed Jobs Analysis</title>
+     <!-- Le styles -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    {% block extra_css %}
+    {%  endblock %}
+</head>
+    <body>
+        {% block header %}
+             <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
+              <a class="navbar-brand" href="#">Indeed Jobs Analysis</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/home/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/charts/1">Analysis</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/jobs">Jobs</a>
+                  </li>
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                    <a class="nav-link" href="/team">Team</a>#}
+{#                  </li>#}
+                </ul>
+              </div>
+            </nav>
+        {% endblock %}
+
+        <div class="" style="margin: 4% 5%">
+          {% block content %}
+
+          {% endblock %}
+        </div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    {% block script %}
+    {% endblock %}
+
+    </body>
+</html>

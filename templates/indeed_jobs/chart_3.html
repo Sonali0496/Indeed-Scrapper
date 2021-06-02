@@ -1,0 +1,49 @@
+{% extends 'indeed_jobs/charts_base.html' %}
+
+{% block chart %}
+     <div id="chart_3">
+    </div>
+
+{% endblock %}
+{% block script %}
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".chart_1").removeClass("active");
+            $(".chart_2").removeClass("active");
+            $(".chart_3").addClass("active");
+
+            var job_list = {{ jobs|safe }};
+            var jobs_by_location = [];
+            jobs_by_location.push(["Company", "Job Count", { role: 'annotation' }]);
+            job_list.forEach(function (job) {
+                jobs_by_location.push([job['company'], job['num_jobs'], job['num_jobs']])
+            })
+
+            google.charts.load('current', {packages: ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                // Define the chart to be drawn.
+
+                var data = google.visualization.arrayToDataTable(jobs_by_location);
+                 var options = {
+                     title: 'Jobs By Company',
+                     height:1000,
+                     chartArea: {width: '60%'},
+                     hAxis: {
+                      title: 'Company',
+                      minValue: 0
+                     },
+                     vAxis: {
+                      title: 'Job Count'
+                     },
+                     bars:'vertical'
+                  };
+                // Instantiate and draw the chart.
+                var chart = new google.visualization.ColumnChart(document.getElementById("chart_3"));
+                chart.draw(data, options);
+            }
+        });
+    </script>
+{% endblock %}

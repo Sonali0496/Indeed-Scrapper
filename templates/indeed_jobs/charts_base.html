@@ -1,0 +1,21 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+    <div id="chart_nav">
+        <ul class="nav nav-pills nav-fill nav-justified nav-tabs na" style="margin: 2% 2% 2% 2%">
+          <li class="nav-item">
+            <a class="nav-link chart_1" href="/charts/1">Job Roles Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link chart_2" href="/charts/2">Location Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link chart_3" href="/charts/3">Company Analysis</a>
+          </li>
+        </ul>
+    </div>
+
+    {% block chart %}
+    {% endblock %}
+
+{% endblock %}
